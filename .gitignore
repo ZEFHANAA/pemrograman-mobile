@@ -1,0 +1,25 @@
+# Gradle & Android Studio
+.gradle/
+build/
+app/build/
+*.iml
+.idea/
+local.properties
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Flutter & Dart
+.dart_tool/
+.packages
+pubspec.lock
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Python & Temporary
+__pycache__/
+*.pyc
+scratch/
+~$*
