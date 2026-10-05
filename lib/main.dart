@@ -6,6 +6,8 @@ import 'pert2/Praktikum/hello_app_page.dart';
 import 'pert2/Tugas/tugas2_page.dart';
 import 'pert3/Praktikum/praktikum3_page.dart';
 import 'pert3/Tugas/tugas3_page.dart';
+import 'pert4/praktikum/praktikum4_page.dart';
+import 'pert4/tugas/tugas4_page.dart';
 
 void main() {
   runApp(const PemmobApp());
@@ -169,6 +171,25 @@ class MainDashboard extends StatelessWidget {
               tugasDesc: 'Formulir lengkap dengan validasi input & dialog konfirmasi',
               onTugasTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas3Page()));
+              },
+            ),
+            const SizedBox(height: 20),
+
+            // Section Pertemuan 4
+            _buildMeetingSection(
+              title: 'Pertemuan 4',
+              subtitle: 'Pemodelan Activity & Intent pada Android',
+              color: Colors.deepPurple.shade700,
+              icon: Icons.swap_horiz,
+              praktikumTitle: 'Praktikum 4: Explicit Intent (Kirim Pesan Antar Activity)',
+              praktikumDesc: 'MainActivity mengirim data teks ke AktifitasDua dengan extra',
+              onPraktikumTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const Praktikum4Page()));
+              },
+              tugasTitle: 'Tugas 4: Implicit Intent (Action Browser, Maps, & Share)',
+              tugasDesc: 'Penerapan ACTION_VIEW (Web & Geo) dan ACTION_SEND',
+              onTugasTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas4Page()));
               },
             ),
             const SizedBox(height: 24),

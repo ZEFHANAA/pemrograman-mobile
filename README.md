@@ -28,6 +28,11 @@ Repository untuk tugas dan praktikum mata kuliah Pemrograman Mobile.
 - **Tugas:** Form Pendaftaran Mahasiswa dengan Validasi Input
 - **Laporan:** [Laporan_Praktikum_dan_Tugas_Pertemuan_3.pdf](lib/pert3/Doc%20Tugas/Laporan_Praktikum_dan_Tugas_Pertemuan_3.pdf)
 
+#### Pertemuan 4 - Pemodelan Activity & Intent
+- **Praktikum:** Explicit Intent (Kirim Pesan Antar Activity)
+- **Tugas:** Implicit Intent (Action Browser, Maps, & Share)
+- **Laporan:** [Laporan_Praktikum_dan_Tugas_Pertemuan_4.pdf](lib/pert4/Doc%20Tugas/Laporan_Praktikum_dan_Tugas_Pertemuan_4.pdf)
+
 ---
 
 ### Cara Menjalankan Aplikasi
