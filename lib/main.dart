@@ -8,6 +8,10 @@ import 'pert3/Praktikum/praktikum3_page.dart';
 import 'pert3/Tugas/tugas3_page.dart';
 import 'pert4/praktikum/praktikum4_page.dart';
 import 'pert4/tugas/tugas4_page.dart';
+import 'pert5/praktikum/praktikum5_page.dart';
+import 'pert5/tugas/tugas5_page.dart';
+import 'pert6/praktikum/praktikum6_page.dart';
+import 'pert6/tugas/tugas6_page.dart';
 
 void main() {
   runApp(const PemmobApp());
@@ -190,6 +194,44 @@ class MainDashboard extends StatelessWidget {
               tugasDesc: 'Penerapan ACTION_VIEW (Web & Geo) dan ACTION_SEND',
               onTugasTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas4Page()));
+              },
+            ),
+            const SizedBox(height: 20),
+
+            // Section Pertemuan 5
+            _buildMeetingSection(
+              title: 'Pertemuan 5',
+              subtitle: 'UI/UX Design: Interactive Images & Navigation Menu',
+              color: const Color(0xFFD81B60),
+              icon: Icons.fastfood,
+              praktikumTitle: 'Praktikum 5: Droid Cafe (Interactive Desserts & Options Menu)',
+              praktikumDesc: 'Pilihan Donut, Ice Cream, FroYo & AppBar Overflow Menu',
+              onPraktikumTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const Praktikum5Page()));
+              },
+              tugasTitle: 'Tugas 5: Order Activity (Radio Buttons Delivery & Controls)',
+              tugasDesc: 'Formulir pemesanan dengan metode pengiriman interaktif',
+              onTugasTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas5Page()));
+              },
+            ),
+            const SizedBox(height: 20),
+
+            // Section Pertemuan 6
+            _buildMeetingSection(
+              title: 'Pertemuan 6',
+              subtitle: 'Tematic Design: Material Design, Theme & Scorekeeper',
+              color: Colors.teal.shade800,
+              icon: Icons.sports_score,
+              praktikumTitle: 'Praktikum 6: Scorekeeper App (Team 1 & Team 2)',
+              praktikumDesc: 'Pencatat skor pertandingan dengan Day Mode & Night Mode',
+              onPraktikumTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const Praktikum6Page()));
+              },
+              tugasTitle: 'Tugas 6: Material Me (Sports CardView & Navigation)',
+              tugasDesc: 'Daftar kartu berita olahraga dengan transisi ke pencatat skor',
+              onTugasTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas6Page()));
               },
             ),
             const SizedBox(height: 24),

@@ -33,6 +33,16 @@ Repository untuk tugas dan praktikum mata kuliah Pemrograman Mobile.
 - **Tugas:** Implicit Intent (Action Browser, Maps, & Share)
 - **Laporan:** [Laporan_Praktikum_dan_Tugas_Pertemuan_4.pdf](lib/pert4/Doc%20Tugas/Laporan_Praktikum_dan_Tugas_Pertemuan_4.pdf)
 
+#### Pertemuan 5 - User Interface & User Experience (Droid Cafe)
+- **Praktikum:** Droid Cafe dengan Hidangan Interaktif (Donut, Ice Cream Sandwiches, FroYo) & Overflow Menu
+- **Tugas:** Order Activity dengan Form Pelanggan & Radio Button Metode Pengiriman
+- **Laporan:** [Laporan_Praktikum_dan_Tugas_Pertemuan_5.pdf](lib/pert5/Doc%20Tugas/Laporan_Praktikum_dan_Tugas_Pertemuan_5.pdf)
+
+#### Pertemuan 6 - Material Design, Theme, & Scorekeeper
+- **Praktikum:** Scorekeeper App (Team 1 & Team 2, Plus/Minus Score, & Day/Night Mode Switch)
+- **Tugas:** Material Me Sports Card Catalog & Navigasi ke Papan Skor
+- **Laporan:** [Laporan_Praktikum_dan_Tugas_Pertemuan_6.pdf](lib/pert6/Doc%20Tugas/Laporan_Praktikum_dan_Tugas_Pertemuan_6.pdf)
+
 ---
 
 ### Cara Menjalankan Aplikasi
