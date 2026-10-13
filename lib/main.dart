@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'pert1/Praktikum/praktikum1_page.dart';
-import 'pert1/Tugas/tugas1_page.dart';
-import 'pert2/Praktikum/hello_app_page.dart';
-import 'pert2/Tugas/tugas2_page.dart';
-import 'pert3/Praktikum/praktikum3_page.dart';
-import 'pert3/Tugas/tugas3_page.dart';
+import 'pert1/praktikum/praktikum1_page.dart';
+import 'pert1/tugas/tugas1_page.dart';
+import 'pert2/praktikum/hello_app_page.dart';
+import 'pert2/tugas/tugas2_page.dart';
+import 'pert3/praktikum/praktikum3_page.dart';
+import 'pert3/tugas/tugas3_page.dart';
 import 'pert4/praktikum/praktikum4_page.dart';
 import 'pert4/tugas/tugas4_page.dart';
 import 'pert5/praktikum/praktikum5_page.dart';

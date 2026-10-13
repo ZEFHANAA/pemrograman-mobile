@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:pemmob/pert1/Praktikum/praktikum1_page.dart';
-import 'package:pemmob/pert1/Tugas/tugas1_page.dart';
-import 'package:pemmob/pert2/Praktikum/hello_app_page.dart';
-import 'package:pemmob/pert2/Tugas/tugas2_page.dart';
-import 'package:pemmob/pert3/Praktikum/praktikum3_page.dart';
-import 'package:pemmob/pert3/Tugas/tugas3_page.dart';
+import 'package:pemmob/pert1/praktikum/praktikum1_page.dart';
+import 'package:pemmob/pert1/tugas/tugas1_page.dart';
+import 'package:pemmob/pert2/praktikum/hello_app_page.dart';
+import 'package:pemmob/pert2/tugas/tugas2_page.dart';
+import 'package:pemmob/pert3/praktikum/praktikum3_page.dart';
+import 'package:pemmob/pert3/tugas/tugas3_page.dart';
 
 void main() {
   setUpAll(() {
