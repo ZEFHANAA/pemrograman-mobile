@@ -12,6 +12,8 @@ import 'pert5/praktikum/praktikum5_page.dart';
 import 'pert5/tugas/tugas5_page.dart';
 import 'pert6/praktikum/praktikum6_page.dart';
 import 'pert6/tugas/tugas6_page.dart';
+import 'pert7/praktikum/praktikum7_page.dart';
+import 'pert7/tugas/tugas7_page.dart';
 
 void main() {
   runApp(const PemmobApp());
@@ -232,6 +234,25 @@ class MainDashboard extends StatelessWidget {
               tugasDesc: 'Daftar kartu berita olahraga dengan transisi ke pencatat skor',
               onTugasTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas6Page()));
+              },
+            ),
+            const SizedBox(height: 20),
+
+            // Section Pertemuan 7
+            _buildMeetingSection(
+              title: 'Pertemuan 7',
+              subtitle: 'Location Based Service (LBS) & Google Maps API',
+              color: const Color(0xFF1565C0),
+              icon: Icons.map,
+              praktikumTitle: 'Praktikum 7: LBS Location Provider & GPS Tracker',
+              praktikumDesc: 'Pembacaan koordinat satelit GPS & proyeksi titik lokasi',
+              onPraktikumTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const Praktikum7Page()));
+              },
+              tugasTitle: 'Tugas 7: PetaWisata Indonesia (Haversine & Maps API)',
+              tugasDesc: 'Katalog 15 destinasi, filter kategori & urutan jarak terdekat',
+              onTugasTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas7Page()));
               },
             ),
             const SizedBox(height: 24),

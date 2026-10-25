@@ -43,6 +43,11 @@ Repository untuk tugas dan praktikum mata kuliah Pemrograman Mobile.
 - **Tugas:** Material Me Sports Card Catalog & Navigasi ke Papan Skor
 - **Laporan:** [Laporan_Praktikum_dan_Tugas_Pertemuan_6.pdf](lib/pert6/Doc%20Tugas/Laporan_Praktikum_dan_Tugas_Pertemuan_6.pdf)
 
+#### Pertemuan 7 - Location Based Service (LBS) & Google Maps API
+- **Praktikum:** LBS Location Provider (GPS Tracking, Koordinat Latitude/Longitude, & Canvas Map)
+- **Tugas:** PetaWisata Indonesia (15 Destinasi Wisata, Filter Kategori, Haversine Distance, & Detail Rute)
+- **Laporan:** [Laporan_Praktikum_dan_Tugas_Pertemuan_7.pdf](lib/pert7/Doc%20Tugas/Laporan_Praktikum_dan_Tugas_Pertemuan_7.pdf)
+
 ---
 
 ### Cara Menjalankan Aplikasi
