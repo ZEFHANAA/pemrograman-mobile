@@ -1,6 +1,6 @@
 # Pemrograman Mobile (CR002)
 
-Repository untuk tugas dan praktikum mata kuliah Pemrograman Mobile.
+Repository untuk tugas, praktikum, dan project akhir mata kuliah Pemrograman Mobile.
 
 ### Data Mahasiswa
 - **Nama:** Zefhana Ananda
@@ -50,7 +50,25 @@ Repository untuk tugas dan praktikum mata kuliah Pemrograman Mobile.
 
 ---
 
-### Cara Menjalankan Aplikasi
+## Project Akhir - SPLW Mobile
+
+Prototype **Sistem Pencarian dan Penyimpanan Lokasi Wisata (SPLW) Mobile** berbasis Flutter.
+
+- **Dokumen BRD/PRD:** [lib/project/README.md](lib/project/README.md)
+- **Prototype & akun demo:** [lib/project/prototype/README.md](lib/project/prototype/README.md)
+- **Screenshot:** [lib/project/prototype/screenshots](lib/project/prototype/screenshots)
+- **Prototype Figma:** [SPLW Mobile — UI/UX Design](https://www.figma.com/design/aVvksZdQLvnRKnkHQ4DP51/SPLW-Mobile-%E2%80%94-UI-UX-Design?node-id=82-1804)
+
+```bash
+flutter pub get
+flutter run -d chrome -t lib/project/prototype/main.dart
+```
+
+Prototype memakai data mock in-memory; backend, peta live, GPS perangkat, dan ekspor `.xlsx` belum diimplementasikan. Status lengkap dan batasan dijelaskan di README prototype.
+
+---
+
+### Cara Menjalankan Tugas Mingguan
 ```bash
 flutter pub get
 flutter run
