@@ -1,0 +1,18 @@
+name: tabungku_layout
+description: "Tugas Minggu 3 - layout TabungKu dengan widget dasar Flutter."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
