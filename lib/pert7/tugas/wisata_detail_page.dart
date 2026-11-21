@@ -211,7 +211,7 @@ class WisataDetailPage extends StatelessWidget {
                                   color: Color(0xFF1565C0), size: 20),
                               SizedBox(width: 8),
                               Text(
-                                'Koordinat Geografis (Google Maps API)',
+                                'Koordinat Destinasi (data contoh)',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 13,
@@ -273,7 +273,7 @@ class WisataDetailPage extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(
-                            'Membuka rute Google Maps menuju: ${wisata.nama} (${wisata.lintang}, ${wisata.bujur})',
+                            'Simulasi rute: ${wisata.nama} (${wisata.lintang}, ${wisata.bujur}). Google Maps belum dibuka.',
                           ),
                           backgroundColor: const Color(0xFF1565C0),
                           duration: const Duration(seconds: 3),
@@ -282,7 +282,7 @@ class WisataDetailPage extends StatelessWidget {
                       );
                     },
                     icon: const Icon(Icons.directions),
-                    label: const Text('Buka Rute di Google Maps'),
+                    label: const Text('Tampilkan Info Rute (Simulasi)'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF1565C0),
                       foregroundColor: Colors.white,

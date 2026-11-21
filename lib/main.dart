@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
+import 'app_theme_controller.dart';
 
-import 'pert1/praktikum/praktikum1_page.dart';
-import 'pert1/tugas/tugas1_page.dart';
-import 'pert2/praktikum/hello_app_page.dart';
-import 'pert2/tugas/tugas2_page.dart';
-import 'pert3/praktikum/praktikum3_page.dart';
-import 'pert3/tugas/tugas3_page.dart';
-import 'pert4/praktikum/praktikum4_page.dart';
-import 'pert4/tugas/tugas4_page.dart';
-import 'pert5/praktikum/praktikum5_page.dart';
-import 'pert5/tugas/tugas5_page.dart';
-import 'pert6/praktikum/praktikum6_page.dart';
-import 'pert6/tugas/tugas6_page.dart';
-import 'pert7/praktikum/praktikum7_page.dart';
-import 'pert7/tugas/tugas7_page.dart';
+import 'pert1/praktikum/latihan_flutter_page.dart';
+import 'pert1/tugas/kartu_perkenalan_page.dart';
+import 'pert2/praktikum/daftar_kontak_page.dart';
+import 'pert2/tugas/cari_kontak_page.dart';
+import 'pert3/praktikum/form_provider_page.dart';
+import 'pert3/tugas/daftar_belanja_page.dart';
+import 'pert4/praktikum/pengguna_api_page.dart';
+import 'pert4/tugas/postingan_page.dart';
+import 'pert5/praktikum/penyimpanan_page.dart';
+import 'pert5/tugas/pencatat_pengeluaran_page.dart';
+import 'pert6/praktikum/tema_routing_animasi_page.dart';
+import 'pert6/tugas/galeri_interaktif_page.dart';
+import 'pert7/pages/aktivitas_form_page.dart';
+import 'pert7/pages/tabungku_shell_page.dart';
+import 'pert7/models/aktivitas_tabungan.dart';
+import 'pert8/pages/status_server_page.dart';
+import 'pert8/praktikum/status_server_praktikum_page.dart';
+import 'pert8/tugas/status_server_tugas_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AppThemeController.load();
   runApp(const PemmobApp());
 }
 
@@ -24,12 +31,16 @@ class PemmobApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ValueListenableBuilder<Color>(
+      valueListenable: AppThemeController.seed,
+      builder: (context, seed, _) => ValueListenableBuilder<ThemeMode>(
+        valueListenable: AppThemeController.mode,
+        builder: (context, mode, _) => MaterialApp(
       title: 'PEMMOB - Zefhana Ananda',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        colorSchemeSeed: Colors.indigo,
+        colorSchemeSeed: seed,
         scaffoldBackgroundColor: const Color(0xFFF8FAFC),
         appBarTheme: const AppBarTheme(
           centerTitle: true,
@@ -38,7 +49,27 @@ class PemmobApp extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
       ),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: seed,
+        brightness: Brightness.dark,
+      ),
+      themeMode: mode,
+      onGenerateRoute: (settings) {
+        if (settings.name == '/tabungku/form') {
+          final argument = settings.arguments;
+          return MaterialPageRoute<void>(
+            builder: (_) => AktivitasTabunganFormPage(kegiatan: argument is AktivitasTabungan ? argument : null),
+          );
+        }
+        if (settings.name == '/status') {
+          return MaterialPageRoute<void>(builder: (_) => const StatusServerPage());
+        }
+        return null;
+      },
       home: const MainDashboard(),
+        ),
+      ),
     );
   }
 }
@@ -115,7 +146,7 @@ class MainDashboard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: const Text(
-                      'Tugas & Praktikum Modul 1 - 2 - 3',
+                'Praktikum & Tugas Pertemuan 1–8',
                       style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
                     ),
                   ),
@@ -127,18 +158,18 @@ class MainDashboard extends StatelessWidget {
             // Section Pertemuan 1
             _buildMeetingSection(
               title: 'Pertemuan 1',
-              subtitle: 'Pengenalan Konsep Dasar Android & Tools',
+            subtitle: 'Pengenalan Flutter, widget, dan aplikasi pertama',
               color: Colors.blue.shade700,
               icon: Icons.android,
-              praktikumTitle: 'Praktikum 1: Hello Android Studio',
-              praktikumDesc: 'Pengenalan struktur folder manifests, java, res, & lifecycle',
+            praktikumTitle: 'Praktikum 1: Hello Flutter & Counter',
+            praktikumDesc: 'Widget dasar, hot reload, StatefulWidget, dan setState',
               onPraktikumTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const Praktikum1Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const LatihanFlutterPage()));
               },
-              tugasTitle: 'Tugas 1: Eksplorasi 4 Lapisan Arsitektur Android',
-              tugasDesc: 'Linux Kernel, Native Libraries & ART, Framework, Applications',
+            tugasTitle: 'Tugas 1: Kartu Perkenalan',
+            tugasDesc: 'Menampilkan foto/ikon, nama, NIM, program studi, dan hobi',
               onTugasTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas1Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const KartuPerkenalanPage()));
               },
             ),
             const SizedBox(height: 20),
@@ -146,18 +177,18 @@ class MainDashboard extends StatelessWidget {
             // Section Pertemuan 2
             _buildMeetingSection(
               title: 'Pertemuan 2',
-              subtitle: 'Konsep Dasar Arsitektur & Pemrograman Flutter',
+            subtitle: 'Layout, ListView, dan navigasi',
               color: Colors.purple.shade700,
               icon: Icons.flutter_dash,
-              praktikumTitle: 'Praktikum 2: Hello World Flutter (hello_app)',
-              praktikumDesc: 'Sesuai Modul 2 Halaman 10–15 (StatelessWidget & Scaffold)',
+            praktikumTitle: 'Praktikum 2: ListView & Navigasi Kontak',
+            praktikumDesc: 'Daftar kontak dan halaman detail dengan Navigator.push',
               onPraktikumTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const Praktikum2Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const DaftarKontakPage()));
               },
-              tugasTitle: 'Tugas 2: Profil & Counter Reaktif StatefulWidget',
-              tugasDesc: 'State management lokal menggunakan setState() & SnackBar',
+            tugasTitle: 'Tugas 2: Daftar Kontak',
+            tugasDesc: 'Pencarian kontak, ListView, dan halaman detail',
               onTugasTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas2Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const CariKontakPage()));
               },
             ),
             const SizedBox(height: 20),
@@ -165,18 +196,18 @@ class MainDashboard extends StatelessWidget {
             // Section Pertemuan 3
             _buildMeetingSection(
               title: 'Pertemuan 3',
-              subtitle: 'Perancangan Model Layout pada Android & Flutter',
+            subtitle: 'Form, validasi, Provider & daftar belanja',
               color: Colors.teal.shade700,
               icon: Icons.view_quilt,
-              praktikumTitle: 'Praktikum 3: LinearLayout & RelativeLayout',
-              praktikumDesc: 'Form Kirim Pesan (weights) & Form Registrasi (posisi relatif)',
+            praktikumTitle: 'Praktikum 3: Form & Provider',
+            praktikumDesc: 'Validasi input barang dan pembaruan daftar melalui ChangeNotifier',
               onPraktikumTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const Praktikum3Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const FormProviderPage()));
               },
-              tugasTitle: 'Tugas 3: Form Pendaftaran Mahasiswa Komprehensif',
-              tugasDesc: 'Formulir lengkap dengan validasi input & dialog konfirmasi',
+            tugasTitle: 'Tugas 3: Daftar Belanja',
+            tugasDesc: 'Tambah barang, tandai sudah dibeli, dan hapus dengan Provider',
               onTugasTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas3Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const DaftarBelanjaPage()));
               },
             ),
             const SizedBox(height: 20),
@@ -184,18 +215,18 @@ class MainDashboard extends StatelessWidget {
             // Section Pertemuan 4
             _buildMeetingSection(
               title: 'Pertemuan 4',
-              subtitle: 'Pemodelan Activity & Intent pada Android',
+          subtitle: 'REST API dan pemuatan data asinkron',
               color: Colors.deepPurple.shade700,
               icon: Icons.swap_horiz,
-              praktikumTitle: 'Praktikum 4: Explicit Intent (Kirim Pesan Antar Activity)',
-              praktikumDesc: 'MainActivity mengirim data teks ke AktifitasDua dengan extra',
+            praktikumTitle: 'Praktikum 4: FutureBuilder & REST API',
+            praktikumDesc: 'Memuat JSONPlaceholder dengan status loading, error, dan coba lagi',
               onPraktikumTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const Praktikum4Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const PenggunaApiPage()));
               },
-              tugasTitle: 'Tugas 4: Implicit Intent (Action Browser, Maps, & Share)',
-              tugasDesc: 'Penerapan ACTION_VIEW (Web & Geo) dan ACTION_SEND',
+            tugasTitle: 'Tugas 4: Daftar Postingan & Komentar',
+            tugasDesc: 'REST API, model fromJson, FutureBuilder, dan halaman detail',
               onTugasTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas4Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const DaftarPostinganPage()));
               },
             ),
             const SizedBox(height: 20),
@@ -203,18 +234,18 @@ class MainDashboard extends StatelessWidget {
             // Section Pertemuan 5
             _buildMeetingSection(
               title: 'Pertemuan 5',
-              subtitle: 'UI/UX Design: Interactive Images & Navigation Menu',
+            subtitle: 'Penyimpanan data lokal: Shared Preferences & SQLite',
               color: const Color(0xFFD81B60),
-              icon: Icons.fastfood,
-              praktikumTitle: 'Praktikum 5: Droid Cafe (Interactive Desserts & Options Menu)',
-              praktikumDesc: 'Pilihan Donut, Ice Cream, FroYo & AppBar Overflow Menu',
+          icon: Icons.receipt_long,
+            praktikumTitle: 'Praktikum 5: CRUD Pengeluaran dengan SQLite',
+            praktikumDesc: 'Tambah, baca, ubah, dan hapus data lokal; pengaturan disimpan di preferences',
               onPraktikumTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const Praktikum5Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const PenyimpananPage()));
               },
-              tugasTitle: 'Tugas 5: Order Activity (Radio Buttons Delivery & Controls)',
-              tugasDesc: 'Formulir pemesanan dengan metode pengiriman interaktif',
+            tugasTitle: 'Tugas 5: Aplikasi Catatan Pengeluaran',
+            tugasDesc: 'CRUD SQLite dengan pengaturan mata uang Shared Preferences',
               onTugasTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas5Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const PencatatPengeluaranPage()));
               },
             ),
             const SizedBox(height: 20),
@@ -222,18 +253,18 @@ class MainDashboard extends StatelessWidget {
             // Section Pertemuan 6
             _buildMeetingSection(
               title: 'Pertemuan 6',
-              subtitle: 'Tematic Design: Material Design, Theme & Scorekeeper',
+            subtitle: 'Tema, routing, navigasi, animasi, dan katalog',
               color: Colors.teal.shade800,
-              icon: Icons.sports_score,
-              praktikumTitle: 'Praktikum 6: Scorekeeper App (Team 1 & Team 2)',
-              praktikumDesc: 'Pencatat skor pertandingan dengan Day Mode & Night Mode',
+          icon: Icons.auto_awesome_motion,
+            praktikumTitle: 'Praktikum 6: ThemeMode & Navigasi',
+            praktikumDesc: 'Mengganti tema global dan berpindah halaman',
               onPraktikumTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const Praktikum6Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const TemaRoutingAnimasiPage()));
               },
-              tugasTitle: 'Tugas 6: Material Me (Sports CardView & Navigation)',
-              tugasDesc: 'Daftar kartu berita olahraga dengan transisi ke pencatat skor',
+            tugasTitle: 'Tugas 6: Katalog Flutter',
+            tugasDesc: 'Galeri kartu, detail item, Hero, dan animasi transisi',
               onTugasTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas6Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const GaleriInteraktifPage()));
               },
             ),
             const SizedBox(height: 20),
@@ -241,18 +272,37 @@ class MainDashboard extends StatelessWidget {
             // Section Pertemuan 7
             _buildMeetingSection(
               title: 'Pertemuan 7',
-              subtitle: 'Location Based Service (LBS) & Google Maps API',
+            subtitle: 'Mini proyek terpadu TabungKu',
               color: const Color(0xFF1565C0),
-              icon: Icons.map,
-              praktikumTitle: 'Praktikum 7: LBS Location Provider & GPS Tracker',
-              praktikumDesc: 'Pembacaan koordinat satelit GPS & proyeksi titik lokasi',
+          icon: Icons.savings,
+            praktikumTitle: 'Praktikum 7: TabungKu',
+            praktikumDesc: 'To-do kegiatan, SQLite, laporan tabungan, tema, dan navigasi',
               onPraktikumTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const Praktikum7Page()));
               },
-              tugasTitle: 'Tugas 7: PetaWisata Indonesia (Haversine & Maps API)',
-              tugasDesc: 'Katalog 15 destinasi, filter kategori & urutan jarak terdekat',
+            tugasTitle: 'Tugas 7: Mini Proyek TabungKu',
+            tugasDesc: 'Manajemen kegiatan dan pemasukan/pengeluaran dengan laporan harian',
               onTugasTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const Tugas7Page()));
+              },
+            ),
+            const SizedBox(height: 20),
+
+            // Section Pertemuan 8
+            _buildMeetingSection(
+              title: 'Pertemuan 8',
+            subtitle: 'Docker Compose, MySQL, FastAPI, dan Flutter',
+              color: const Color(0xFFE65100),
+          icon: Icons.cloud_done,
+            praktikumTitle: 'Praktikum 8: FastAPI & Health Check',
+            praktikumDesc: 'Memeriksa API dan koneksi MySQL dari aplikasi Flutter',
+              onPraktikumTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const StatusServerPraktikumPage()));
+              },
+            tugasTitle: 'Tugas 8: Adminer & Status TabungKu Cloud',
+            tugasDesc: 'Docker Compose, health check MySQL, dan konfigurasi alamat API tersimpan',
+              onTugasTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const StatusServerTugasPage()));
               },
             ),
             const SizedBox(height: 24),

@@ -1,95 +1,63 @@
-# Doc Tugas - Pertemuan 3: Perancangan Model Layout pada Android & Flutter
+# Laporan Praktikum dan Tugas Pertemuan 3 - Form, Validasi, dan Provider
 
-- **Nama Mahasiswa**: Zefhana Ananda
-- **NIM**: 20240801047
-- **Dosen Pengampu**: Jefry Sunupurwa Asri, S.Kom., M.Kom.
-- **Mata Kuliah**: Pemrograman Mobile (CR002)
-- **Fakultas**: Fakultas Ilmu Komputer, Universitas Esa Unggul
+**Mahasiswa:** Zefhana Ananda  
+**NIM:** 20240801047  
+**Mata kuliah:** Pemrograman Mobile (CR002)  
 
----
+## Ringkasan
 
-## Tangkapan Layar Hasil Running Aplikasi
+Pertemuan ini menggabungkan form input dengan pengelolaan state daftar belanja. Input divalidasi sebelum ditambahkan, sedangkan ChangeNotifier dan Provider memisahkan data aplikasi dari widget. Tugas mencakup penambahan item, perubahan status dibeli, dan penghapusan item dengan tampilan yang mengikuti perubahan state.
 
-### 1. Hasil Praktikum: LinearLayout & RelativeLayout
-![Tampilan Praktikum Pertemuan 3](../../../screenshots/ss_pert3_praktikum.png)
+## I. Pendahuluan dan tujuan
 
-### 2. Hasil Tugas: Form Registrasi Mahasiswa Komprehensif
-![Tampilan Tugas Pertemuan 3](../../../screenshots/ss_pert3_tugas.png)
+Form menjadi pintu masuk data pengguna sehingga masukan perlu diperiksa sebelum disimpan. Setelah data diterima, perubahan harus diteruskan ke bagian UI yang menampilkan daftar. Menempatkan seluruh data di dalam widget dapat membuat logika halaman sulit dikelola ketika fitur bertambah.
+Tujuan latihan adalah mengumpulkan masukan melalui TextFormField, menggunakan validator, menyimpan daftar pada model state, serta memahami bagaimana perubahan ChangeNotifier diberitahukan ke widget melalui Provider.
 
----
+- Memastikan masukan wajib tidak kosong.
+- Memisahkan operasi daftar dari kode presentasi.
+- Menampilkan ulang UI ketika item ditambah, ditandai, atau dihapus.
 
-## BAB I: Pendahuluan & Tujuan Pembelajaran
-1. Belajar cara menyusun tata letak UI (Layout Model) di Android.
-2. Memahami LinearLayout: orientasi vertikal, weight, dan gravity.
-3. Memahami RelativeLayout: penempatan posisi relatif terhadap elemen lain dan parent.
-4. Membuat form registrasi lengkap dengan validasi input.
+## II. Landasan konsep
 
----
+Form mengelompokkan field dan dapat menggunakan GlobalKey<FormState> untuk menjalankan validasi. Validator mengembalikan pesan ketika data tidak memenuhi syarat; proses simpan hanya diteruskan jika seluruh field valid.
+ChangeNotifier menyediakan notifikasi perubahan. Provider membuat model tersedia pada bagian widget turunannya. Widget yang membaca model akan membangun ulang tampilan ketika model memberi notifikasi. Pola ini menjaga sumber state tetap terpusat dan mengurangi pengiriman callback melewati banyak widget.
 
-## BAB II: Dasar Teori
-Layout Model itu yang menentukan bagaimana elemen-elemen ditata di layar:
-1. LinearLayout: Elemen disusun satu arah (vertikal atau horizontal). Bisa pakai layout_weight buat bagi-bagi ruang layar.
-2. RelativeLayout: Setiap View diposisikan relatif terhadap View lain (below, toLeftOf, dll) atau terhadap batas parent. Bagusnya, tidak perlu nesting layout terlalu dalam.
-3. ConstraintLayout: Layout modern yang pakai constraint, jadi bisa bikin UI yang responsif dengan hierarki tampilan yang flat.
-4. Global Strings (strings.xml): Sebaiknya teks disimpan di resource strings supaya konsisten dan gampang kalau mau ganti bahasa.
+- Validasi dilakukan sebelum mutasi data.
+- Operasi tambah, toggle, dan hapus ditempatkan dalam ShoppingListModel.
+- State pada versi ini bersifat memori; penyimpanan setelah aplikasi ditutup tidak diasumsikan.
 
----
+## III. Pelaksanaan praktikum
 
-## BAB III: Pelaksanaan Praktikum (LinearLayout & RelativeLayout)
-Praktikum 3 ada 2 studi kasus:
-1. Form Kirim Pesan: Pakai LinearLayout vertikal, field Message-nya dikasih weight 1 supaya isi sisa layar, tombol SEND diletakkan di kanan bawah.
-2. Form Registrasi: Pakai RelativeLayout, field Name diletakkan di bawah judul Registration dan rata kiri, Gender di kanan, tombol DONE di bawah Gender.
+Praktikum3Page menyediakan input nama barang dan daftar hasil. Ketika tombol simpan ditekan, form memeriksa nilai melalui validator. Jika valid, nama diteruskan ke model daftar belanja. Model memperbarui koleksi dan memanggil notifikasi sehingga UI membaca daftar terbaru.
+Dengan pola tersebut, widget berperan mengumpulkan dan menampilkan data, sementara model mengatur perubahan. Validasi mencegah entri kosong masuk ke daftar. Pemisahan ini juga membuat operasi data lebih mudah diperiksa secara terpisah.
 
-```dart
-<!-- Sesuai Modul 3 Halaman 9 & 13 -->
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1"
-    android:gravity="top"
-    android:hint="@string/message" />
-<Button
-    android:layout_width="100dp"
-    android:layout_height="wrap_content"
-    android:layout_gravity="right"
-    android:text="@string/send" />
-```
+- Isi nama barang lalu kirim form.
+- Kosongkan field untuk melihat pesan validasi.
+- Periksa bahwa item valid muncul pada daftar sesudah disimpan.
 
----
+## IV. Pembahasan tugas
 
-## BAB IV: Pembahasan Tugas (Form Registrasi Mahasiswa Komprehensif)
-Untuk tugas 3, saya bikin form registrasi mahasiswa yang cukup lengkap. Ada field Nama, NIM, Email, RadioButton buat Jenis Kelamin, Dropdown Program Studi, Alamat Multiline, validasi data, dan AlertDialog yang muncul kalau pendaftaran berhasil.
+Tugas3Page menerapkan daftar belanja yang mendukung tambah item, mengubah status sudah dibeli, dan menghapus item. Setiap operasi melalui ShoppingListModel. UI menampilkan indikator status agar item yang sudah selesai dapat dibedakan dari item yang masih perlu dibeli.
+Status selesai sebaiknya tidak menghapus teks item; informasi tetap tersedia untuk konteks. Penghapusan merupakan tindakan berbeda dan perlu dilakukan secara eksplisit. Pembagian operasi tersebut memperjelas makna kontrol yang ditampilkan pada tiap baris.
 
-```dart
-// Validasi Form
-void _submitForm() {
-  if (_formKey.currentState!.validate()) {
-    showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text('Konfirmasi Pendaftaran'),
-        content: Text('Terdaftar: ${_nameController.text} - ${_nimController.text}'),
-      ),
-    );
-  }
-}
-```
+- Create: item baru dimasukkan sesudah validasi.
+- Update: status item berubah saat kontrol selesai ditekan.
+- Delete: item dihilangkan dari daftar setelah kontrol hapus dipilih.
+- Read: daftar selalu berasal dari state model.
 
----
+## V. Pemeriksaan hasil
 
-## Tabel Sintaks & Widget Penting
-| Syntax / Widget | Fungsi |
-| :--- | :--- |
-| `Column / Row` | Pengganti LinearLayout di Flutter, buat susun child vertikal atau horizontal. |
-| `Expanded / Flex` | Pengganti layout_weight, buat ambil sisa ruang layar. |
-| `TextFormField` | Input teks yang bisa ditambahkan validator. |
-| `GlobalKey<FormState>` | Kunci buat validasi semua input form sekaligus. |
-| `DropdownButtonFormField` | Widget dropdown buat pilihan kayak Program Studi. |
-| `AlertDialog` | Dialog pop-up yang tampil buat nampilin info atau konfirmasi. |
+Panduan pemeriksaan ini tidak menyatakan bahwa tes telah dijalankan.
 
----
+- Masukan kosong ditolak dan menampilkan pesan yang sesuai.
+- Item valid muncul satu kali pada daftar.
+- Menandai selesai hanya mengubah status item yang dipilih.
+- Menghapus satu item tidak mengubah item lain.
+- Periksa perilaku setelah menutup dan membuka ulang aplikasi; versi memori seharusnya tidak diperlakukan sebagai penyimpanan permanen.
 
-## BAB V: Kesimpulan
-1. Pakai layout_weight di LinearLayout bikin form bisa menyesuaikan tinggi layar secara otomatis tanpa harus hardcode ukuran piksel.
-2. RelativeLayout dan ConstraintLayout lebih efisien buat layout yang kompleks karena hierarchy-nya flat, tidak banyak nesting.
-3. Validasi form di sisi client itu penting supaya data yang dimasukkan user sudah benar sebelum diproses lebih lanjut.
+## VI. Kesimpulan
+
+Form dan validator menjaga kualitas masukan, sedangkan Provider bersama ChangeNotifier memisahkan pengelolaan state dari tampilan. Implementasi ini memberi fondasi pola CRUD dalam memori sebelum materi penyimpanan lokal pada pertemuan berikutnya.
+
+- Berkas utama: lib/pert3/data/shopping_list_model.dart, lib/pert3/praktikum/praktikum3_provider_page.dart, dan lib/pert3/tugas/tugas3_shopping_page.dart.
+- Dokumentasi implementasi: lib/pert3/Doc Tugas/laporan_terkini.md.

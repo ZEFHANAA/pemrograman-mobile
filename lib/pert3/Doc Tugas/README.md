@@ -1,19 +1,8 @@
-# Laporan Pertemuan 3 - Pemrograman Mobile (CR002)
+﻿# Laporan Praktikum dan Tugas Pertemuan 3
 
-- **Topik**: Perancangan Model Layout pada Android
-- **Mahasiswa**: Zefhana Ananda
-- **NIM**: 20240801047
-- **Mata Kuliah**: Pemrograman Mobile (CR002)
-- **Dosen Pengampu**: Jefry Sunupurwa Asri, S.Kom., M.Kom.
-- **Institusi**: Fakultas Ilmu Komputer, Universitas Esa Unggul
+Laporan mencakup tujuan, konsep, pelaksanaan praktikum, pembahasan tugas, evaluasi bukti emulator, dan kesimpulan.
 
-## Berkas yang Tersedia
-1. `Laporan_Praktikum_dan_Tugas_Pertemuan_3.pdf` (Format Dokumen PDF)
-2. `penjelasan.md` (Dokumentasi Lengkap Praktikum & Tugas)
-
-## Ringkasan Laporan
-- **BAB I**: Pendahuluan & Tujuan Pembelajaran Model Layout Android
-- **BAB II**: Dasar Teori (`LinearLayout` weight & gravity, `RelativeLayout`, `ConstraintLayout`, `strings.xml`)
-- **BAB III**: Pelaksanaan Praktikum (Form Kirim Pesan LinearLayout & Form Registrasi RelativeLayout)
-- **BAB IV**: Pembahasan Tugas (Form Pendaftaran Mahasiswa dengan Validasi Input)
-- **BAB V**: Kesimpulan & Refleksi
+- [Buka PDF](./Laporan_Praktikum_dan_Tugas_Pertemuan_3.pdf)
+- [Laporan sumber](./penjelasan.md)
+- [Screenshot praktikum](../../../screenshots/current/pert3_praktikum.png)
+- [Screenshot tugas](../../../screenshots/current/pert3_tugas.png)

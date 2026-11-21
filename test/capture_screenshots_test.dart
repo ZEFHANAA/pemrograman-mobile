@@ -62,6 +62,9 @@ void main() {
 
         final file = File('screenshots/${p['name']}.png');
         file.writeAsBytesSync(pngBytes);
+        final fileSs = File('screenshots/ss_${p['name']}.png');
+        fileSs.writeAsBytesSync(pngBytes);
+        // ignore: avoid_print
         print('Captured real widget screenshot: ${file.path}');
       });
     }

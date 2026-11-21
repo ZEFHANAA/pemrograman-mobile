@@ -43,13 +43,24 @@ Repository untuk tugas, praktikum, dan project akhir mata kuliah Pemrograman Mob
 - **Tugas:** Material Me Sports Card Catalog & Navigasi ke Papan Skor
 - **Laporan:** [Laporan_Praktikum_dan_Tugas_Pertemuan_6.pdf](lib/pert6/Doc%20Tugas/Laporan_Praktikum_dan_Tugas_Pertemuan_6.pdf)
 
-#### Pertemuan 7 - Location Based Service (LBS) & Google Maps API
-- **Praktikum:** LBS Location Provider (GPS Tracking, Koordinat Latitude/Longitude, & Canvas Map)
-- **Tugas:** PetaWisata Indonesia (15 Destinasi Wisata, Filter Kategori, Haversine Distance, & Detail Rute)
+#### Pertemuan 7 - Mini Proyek Terpadu: TabungKu
+- **Praktikum:** TabungKu dengan SQLite, Provider, navigasi, tema, dan laporan harian
+- **Tugas:** Mini proyek TabungKu dengan aktivitas, keuangan, laporan, dan pengaturan
 - **Laporan:** [Laporan_Praktikum_dan_Tugas_Pertemuan_7.pdf](lib/pert7/Doc%20Tugas/Laporan_Praktikum_dan_Tugas_Pertemuan_7.pdf)
 
----
+#### Pertemuan 8 - TabungKu Cloud: Docker, MySQL, dan FastAPI
+- **Praktikum:** FastAPI, MySQL, Docker Compose, dan pemeriksaan status server
+- **Tugas:** Adminer, endpoint health dengan cek database, dan konfigurasi API
+- **Backend:** [lib/pert8/tabungku-cloud](lib/pert8/tabungku-cloud)
+- **Laporan:** [Laporan_Praktikum_dan_Tugas_Pertemuan_8.pdf](lib/pert8/Doc%20Tugas/Laporan_Praktikum_dan_Tugas_Pertemuan_8.pdf)
 
+---
+## Tugas Tambahan - TabungKu Layout
+- **Lokasi:** [lib/tabungku_layout](lib/tabungku_layout)
+- **Link:** https://github.com/ZEFHANAA/pemrograman-mobile/tree/main/lib/tabungku_layout
+- **Laporan:** [lib/tabungku_layout/README.md](lib/tabungku_layout/README.md)
+
+---
 ## Project Akhir - SPLW Mobile
 
 Prototype **Sistem Pencarian dan Penyimpanan Lokasi Wisata (SPLW) Mobile** berbasis Flutter.

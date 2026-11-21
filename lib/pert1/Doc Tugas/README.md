@@ -1,19 +1,8 @@
-# Laporan Pertemuan 1 - Pemrograman Mobile (CR002)
+﻿# Laporan Praktikum dan Tugas Pertemuan 1
 
-- **Topik**: Pengenalan Konsep Dasar Android & Pemrograman
-- **Mahasiswa**: Zefhana Ananda
-- **NIM**: 20240801047
-- **Mata Kuliah**: Pemrograman Mobile (CR002)
-- **Dosen Pengampu**: Jefry Sunupurwa Asri, S.Kom., M.Kom.
-- **Institusi**: Fakultas Ilmu Komputer, Universitas Esa Unggul
+Laporan mencakup tujuan, konsep, pelaksanaan praktikum, pembahasan tugas, evaluasi bukti emulator, dan kesimpulan.
 
-## Berkas yang Tersedia
-1. `Laporan_Praktikum_dan_Tugas_Pertemuan_1.pdf` (Format Dokumen PDF)
-2. `penjelasan.md` (Dokumentasi Lengkap Praktikum & Tugas)
-
-## Ringkasan Laporan
-- **BAB I**: Pendahuluan & Tujuan Pembelajaran Pemrograman Android
-- **BAB II**: Dasar Teori (Sejarah Android, Arsitektur 4 Layer Android, Fitur Unggulan)
-- **BAB III**: Pelaksanaan Praktikum (`MyFirstApp`, Analisis Struktur Folder manifests/java/res/gradle, Kode Sumber)
-- **BAB IV**: Pembahasan Tugas (`AndroidArchitectureApp`, Implementasi Aplikasi 4 Layer Arsitektur Android)
-- **BAB V**: Kesimpulan & Refleksi
+- [Buka PDF](./Laporan_Praktikum_dan_Tugas_Pertemuan_1.pdf)
+- [Laporan sumber](./penjelasan.md)
+- [Screenshot praktikum](../../../screenshots/current/pert1_praktikum.png)
+- [Screenshot tugas](../../../screenshots/current/pert1_tugas.png)

@@ -1,8 +1,14 @@
+// ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
 
-class Praktikum3Page extends StatelessWidget {
+class Praktikum3Page extends StatefulWidget {
   const Praktikum3Page({super.key});
 
+  @override
+  State<Praktikum3Page> createState() => _Praktikum3PageState();
+}
+
+class _Praktikum3PageState extends State<Praktikum3Page> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -23,10 +29,7 @@ class Praktikum3Page extends StatelessWidget {
           ),
         ),
         body: const TabBarView(
-          children: [
-            _LinearLayoutDemo(),
-            _RelativeLayoutDemo(),
-          ],
+          children: [_LinearLayoutDemo(), _RelativeLayoutDemo()],
         ),
       ),
     );
@@ -92,7 +95,9 @@ class _LinearLayoutDemo extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Pesan terkirim via LinearLayout!')),
+                    const SnackBar(
+                      content: Text('Pesan terkirim via LinearLayout!'),
+                    ),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -109,8 +114,15 @@ class _LinearLayoutDemo extends StatelessWidget {
   }
 }
 
-class _RelativeLayoutDemo extends StatelessWidget {
+class _RelativeLayoutDemo extends StatefulWidget {
   const _RelativeLayoutDemo();
+
+  @override
+  State<_RelativeLayoutDemo> createState() => _RelativeLayoutDemoState();
+}
+
+class _RelativeLayoutDemoState extends State<_RelativeLayoutDemo> {
+  String _gender = 'Male';
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +146,9 @@ class _RelativeLayoutDemo extends StatelessWidget {
           // Form Box simulating RelativeLayout
           Card(
             elevation: 3,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -142,7 +156,11 @@ class _RelativeLayoutDemo extends StatelessWidget {
                 children: [
                   const Text(
                     'Registration',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blueAccent),
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueAccent,
+                    ),
                   ),
                   const Divider(height: 16),
                   const SizedBox(height: 8),
@@ -161,16 +179,24 @@ class _RelativeLayoutDemo extends StatelessWidget {
                       SizedBox(
                         width: 100,
                         child: DropdownButtonFormField<String>(
-                          value: 'Male',
+                          value: _gender,
                           decoration: const InputDecoration(
                             labelText: 'Gender',
                             border: UnderlineInputBorder(),
                           ),
                           items: const [
-                            DropdownMenuItem(value: 'Male', child: Text('Male')),
-                            DropdownMenuItem(value: 'Female', child: Text('Female')),
+                            DropdownMenuItem(
+                              value: 'Male',
+                              child: Text('Male'),
+                            ),
+                            DropdownMenuItem(
+                              value: 'Female',
+                              child: Text('Female'),
+                            ),
                           ],
-                          onChanged: (val) {},
+                          onChanged: (val) {
+                            if (val != null) setState(() => _gender = val);
+                          },
                         ),
                       ),
                     ],
@@ -184,7 +210,9 @@ class _RelativeLayoutDemo extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Data registrasi disimpan!')),
+                            const SnackBar(
+                              content: Text('Data registrasi disimpan!'),
+                            ),
                           );
                         },
                         style: ElevatedButton.styleFrom(
