@@ -54,6 +54,12 @@ Repository untuk tugas, praktikum, dan project akhir mata kuliah Pemrograman Mob
 - **Backend:** [lib/pert8/tabungku-cloud](lib/pert8/tabungku-cloud)
 - **Laporan:** [Laporan_Praktikum_dan_Tugas_Pertemuan_8.pdf](lib/pert8/Doc%20Tugas/Laporan_Praktikum_dan_Tugas_Pertemuan_8.pdf)
 
+#### Pertemuan 9 - REST API CRUD & Endpoint Laporan SQL
+- **Praktikum:** FastAPI, SQLAlchemy 2, Alembic, Pydantic CRUD `/kegiatan` & `AktivitasCloudApi`
+- **Tugas:** Endpoint `/laporan/harian` & `/laporan/rentang` di SQL, `LaporanCloudApi`, & unit test `MockClient`
+- **Backend:** [lib/pert9/tabungku-cloud](lib/pert9/tabungku-cloud)
+- **Laporan:** [Laporan_Praktikum_dan_Tugas_Pertemuan_9.pdf](lib/pert9/Doc%20Tugas/Laporan_Praktikum_dan_Tugas_Pertemuan_9.pdf)
+
 ---
 ## Tugas Tambahan - TabungKu Layout
 - **Lokasi:** [lib/tabungku_layout](lib/tabungku_layout)
